@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>nho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Baloo 2', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff6f8;
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      color: #d27d98;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .login-box, .content-box {
+      width: 92%;
+      max-width: 420px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(240, 170, 185, 0.15);
+      text-align: center;
+      margin: auto;
+      margin-top: 12vh;
+      transition: opacity 0.6s ease;
+      color: #d27d98;
+    }
+
+    h1, h2 {
+      color: #d27d98;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 14px 0;
+      border: 1px solid #f4dbe2;
+      border-radius: 8px;
+      background: #fff;
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 17px;
+      color: #d27d98;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(to right, #fce3ec, #fde7ea);
+      color: #4b2c2c;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 17px;
+      cursor: pointer;
+      font-family: 'Baloo 2', sans-serif;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #f9d5e2, #fbd8de);
+    }
+
+    .message {
+      color: #d27d98;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    #home {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .fade-in {
+      opacity: 1 !important;
+      animation: appear 1s ease forwards;
+      -webkit-animation: appear 1s ease forwards;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @-webkit-keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-text {
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 0.6s;
+      -webkit-animation: fadeIn 2s ease forwards;
+      -webkit-animation-delay: 0.6s;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #d27d98;
+      text-align: justify;
+      white-space: pre-line;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding-right: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 430px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      .fade-text {
+        font-size: 17px;
+      }
+
+      input, button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box" id="login">
+    <h2>Gửi Bình🌷</h2>
+    <input type="text" id="password" placeholder="Ngày đặc biệt của bọn mình">
+    <button onclick="login()">💌 Nhập</button>
+    <p class="message" id="message"></p>
+  </div>
+
+  <div class="content-box" id="home">
+    <h1>Gửi em</h1>
+    <p class="fade-text">
+    Lời đầu tiên, tui viết bức thư này với mong muốn Binh có thể hiểu được cảm xúc tui vẫn đang dành cho Bình sau tất cả. Tui là thế, tui nhớ Bình nên tui nói nhớ thôi.
+
+Tui muốn làm một điều đặc biệt, dành cho một người đặc biệt nên tui đã tạo ra cái này. Nó sẽ ở đây mãi mãi, giống như cảm xúc của tui dành cho Bình vậy.
+
+Tui đã xoá hết tất cả mọi thứ về Bình. Tui k còn xem hay nghe gì về Bình nhưng Bình vẫn ở nguyên vị trí đó trong đầu tui. Đoạn sau chia tay tui sai nhiều lắm. Tui xin lỗi. Giai đoạn đó tim tui đau nhiều lắm, lần đầu tui bị như vậy, tui k biết mình nên làm gì và không nên làm gì. Tui chưa từng trải qua nó, tui không biết làm thế nào cho đúng. Tui buông thả và cảm thấy chán nản, tui không muốn làm gì cả. Đừng hiểu lầm ý tui là tui k trân trọng những gì tui đang có, mà nó là cái cảm giác chán nản do mới chia tay thui. Với lại tui cũng chưa quen với việc không có ai để kể về những thứ xung quanh tui. Tui có bạn nhưng mà tui đâu có kể mọi thứ với bạn tui đâu, Bình hiểu mà. Chứ dần về sau thì tui quen hơn và tui cũng bắt đầu có lại cảm giác với nhiều thứ ví dụ như là: đồ ăn, game, phim... 
+
+Đoạn mà tui nói mấy cái toxic là tui tự ép bản thân mình nói thế với Bình đấy. Tui xin lỗi, Bình bỏ qua cho tui nhé. Tui nghĩ là nếu tui làm thế thì tui sẽ ghét Bình hơn, quên Bình dễ hơn. Đúng là sau lúc đó tui ghét Bình lắm nhưng cũng chỉ được một khoảng thời gian ngắn thôi thì tui cũng không ghét được nữa. 
+
+Tui đang cải thiện cuộc sống của tui, giờ tui cởi mở hơn nên có nhiều bạn mới rùi. Đúng là tui k hợp họ nhưng mà tui đã học cách hoà nhập rui, ai tui cũng cố để bắt chuyện. Chuyện j tui cũng nói, co moi cai la tui k theo dc nhung luc bno nch, nhan xet ve con gai, ma tui cung k thich noi ve chu de do. Tui còn chơi với nhiều bạn khác khoa. Tui vừa đi quân sự tháng trước, đi quân sự vui lắm! Ae vui cực! Tui ở trung đội 18 xong ae cứ gọi nhau là trung đội 2 ngón. Đi quân sự về tui còn tăng 3 cân cơ, ở đây tui ăn nhiều lắm. Tui spam chanh tuyết với lạp xưởng nhiều cực, đi qsu về tui bị đau họng sổ mũi do uống nhiều chanh tuyết quá. Tu nhien tui nho ra lan dau tui uong chanh tuyet voi lan dau tui an lap xuong deu la voi Bin. Tui muốn được kể nhiều chuyện của tui cho Bình hơn. Lúc đi quân sự tui nhắn tin với mẹ nhiều lắm. Mẹ tui muốn tui tối nào cũng nhắn nên tui toàn tìm mấy cái linh tinh để nói cho mẹ vui. Mẹ tui đáng yêu cực! Mẹ còn chúc tui ngủ ngon và nói yêu tui nữa. Tui cũng yêu bản thân mình hơn hồi trước. Tui nhận ra là trước giờ tui vẫn yêu bản thân mình, chỉ là cái phần yêu Bình nó hơn nhiều lần cái phần yêu bản thân tui thôi. Tui thấy mình tốt hơn nhiều rùi, nhưng mà thi thoảng tui vẫn quên uống thuốc mụn😅. Tui luôn giữ cho mình bận rộn hết mức vậy mà Bình lúc nào cũng xuất hiện trong đầu tui. Tui nghĩ về chuyện mình nhiều lắm, thi thoảng tim tui đập nhanh, hơi đau một chút. Đêm tui thường không ngủ được hoặc ngủ thì toàn bị thức giấc giữa đêm rồi sau đó không ngủ tiếp được. Tui mà nằm xem điện thoại thì sẽ là nằm xem mãi cho đến sáng, nếu tui tắt điện thoại thì tui sẽ không thể ngủ được vì cứ nghĩ linh tinh. Đoạn đầu lúc bọn mình dừng lại tui phải dùng thuốc ngủ mới ngủ được, giờ ít khi tui phải dùng đến rồi. Lúc ngủ nhiều lần tui mơ về Bình, những lần như v tui toàn bật dậy ngay sau đó và nhận ra đó chỉ là mơ, lúc đó tim tui nhói một nhịp. Giờ mọi thứ đã tích cực hơn trước nhiều rồi nhưng mà vị trí của Bình trong lòng tui vẫn vậy, thế nghĩa là Bình đặc biệt lắm.
+
+TUI NHO BINH LAM. Nhớ mùi, giọng nói, nhớ đôi bàn tay, đôi mắt, đôi môi. Nhớ khuôn mặt đáng yêu, xinh xắn k trang điểm. Nho em beo. Nhớ cảm giác được ôm Bình,  nhớ khoảnh khắc bọn mình nấu ăn cùng nhau, nhớ cả những món ăn Bình nấu, nhớ lúc tui làm Bình vui Bình cười hì hì, hì hì. 
+
+Bình đã từng thắc mắc tại sao tui lại yêu Bình đúng không? Tui chưa từng trả lời rõ ràng vì bản thân tui lúc đó chưa biết câu trả lời. Nhưng để mất Bình rui thì tui mới biết câu trả lời. Tui yêu Bình là vì Bình đặc biệt. Mọi thứ về Bình đều đặc biệt trong mắt tui. Không một ai khác hay một thứ gì khác có thể thay thế được Bình. Trong mắt tui chỉ có Bình, trước giờ vẫn vậy. 
+
+Sau cùng dù mọi chuyện có ra sao đi nữa thì tui cũng vẫn sẽ yêu Bình, chỉ Bình thôi, duy nhất. 
+
+Yêu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nhung dong duoi nay bao gom nhung loi linh tui muon noi voi Bin va ca nhung cam xuc nhat thoi cua tui, tui cha biet co nen cho Binh doc k nua
+
+Tui de no o duoi neu Binh tim thay thi hay can nhac luot xuong duoi doc nhe, no linh tinh vo van lam
+
+
+
+
+
+
+
+
+
+
+Tui muon tiep tuc duoc rua bat cho Binh
+
+
+
+
+
+Tui mun tiep tuc duoc goi Binh day moi buoi sang
+
+
+
+
+Đúng là tui vẫn sống khi thiếu Bình, vẫn ăn, vẫn chơi, vẫn ngủ, vẫn học khi thiếu Bình. Nhưng nó nhàm chán hơn rất nhiều khi đã không còn sự xuất hiện của Bình nữa. 
+
+
+
+Thật sự tui tin rằng tình cảm là thứ có thể tăng lên, vì ngay từ đầu thì mình đâu có yêu nhau đâu. Vì tin tưởng nhau nên chính chúng mình là người trao nhau cơ hội để yêu mà. Tình yêu lâu dài là tình yêu gắn bó và đồng hành...
+
+
+
+Không thứ gì thay thế được Bình...
+
+
+
+Hay nghi khac di mot chut. Khi minh lam mot cai j do bi hong, minh se co gang sua no, khi minh sua duoc no roi thi no khong duoc nhu luc ban dau nua. Nhung chinh vi minh da tung lam hong no nen minh se biet duoc tai sao no lai hong. Minh se tran trong va giu gin no hon truoc nhieu. Nhe nhe
+
+
+
+Bình cho tui động lực để trở nên gương mẫu hơn ý. Ví dụ là sau chia tay tui nhận ra bản thân mình chẳng ăn đủ bữa đến thế, nhưng mà trước tui luôn ăn đủ bữa vì tui tin là nếu tui làm thế thì Bình cũng sẽ làm thế... Lối sống của tui tàn phá sức khoẻ hơn trước. Nhưng nhiều lúc tui nghĩ là bản thân mình không yêu thì yêu được ai . Thế là tui lại cố sống nề nếp hơn.
+
+
+Tui k thich lam viec nha, the ma cha hieu sao khi lam viec nha cho Binh tui lai thich. No cho tui cam giac tui dang cham soc Binh y, tui thich lam. Truoc tui hay mang Binh vi Binh luoi la do tui muon Binh tu giac hon. Boi vi khong phai luc nao tui cung qua tro de don dep moi thu cho Binh duoc, nen tui muon Binh giu no gon gang chu that long thi tui muon lam het cho Binh. Binh chi can cuoi` thui, con lai tui lam het cho
+
+
+
+Viec tui tung noi se khong yeu them ai khac la su that day chu tui k noi the de lam Binh vui dau. Tui that su luon coi Binh la the one a
+
+
+
+Nha tui h 1 thang gay 1 thang k muon lay vo, hai phet
+
+
+
+Tui nho luc bon minh cuddle nhau, dich cai kia ra nghe hoi bien thai mot chut nen tui dung tieng anh
+
+
+
+Tui muon om Binh
+
+
+
+Tui tim duoc cho mua qua hay cuc. Binh thich hoa hong. O do co bong hoa hong ma khong bao h héo, tui muon tang cho Binh lam y. Con ca bubble truoc tui bao tui se mua cho Binh y, tui mua no xong cat no trong ngan tu rui
+
+
+
+
+Hop banh nabati cua tui cho Binh tui van dang giu y nguyen tu ngay hom do
+
+
+
+
+Sao dua ctrai nao cung co cai kieu di tia gai the, cu khi nao bno noi ve con gai la tui lai hong bic phai noi j. Kieu 10 dua thi phai 9,5 dua n nthe. Tui k thich noi phai bao voi bno la tui co ny rui nen tui hog ngam gai. Bno bao tui la co ny ma ngam gai thoi thi co sao dau, tui bao la tui ngam ny tui thui. Xong bno cu cuoi roi treu tui. Binh yen tam nhe minh dung lai rui nen tui hong co ke hay cho bno xem j ve Binh dau ma tui chi noi vay de tui bot bi lam phien thui
+
+
+
+
+Lau lam rui hong duoc xem anh Binh, nay tui vao fb xem. SAO BINH XINH THE
+
+
+
+Tui nho Binh
+
+
+
+Tui nho hai cau, tui nho luc ca 3 nam tren giuong om nhau ngu
+
+
+
+Tui muon duoc goi Binh day moi buoi sang
+
+
+Tu luc minh dung lai den gio nhieu lan tui rung rung nuoc mat rui nhung tui chi khoc duy nhat cai lan ma Binh noi rang Binh cho tui mot co hoi trong tuong lai. Tui hem de khoc dau, tui manh me lam, nhung ma tui lai toan khoc khi thay Binh khoc 😅
+
+
+
+Tui muon xem phim voi Binh, thoi gian qua tui xem nhieu phim lam. Nhung co vai phim tui hong dam xem vi neu xem thi tui se nho den Binh, tui muon xem phim do lam. Nhung chi voi Binh thoi
+
+
+
+Tui nho Binh
+
+
+
+Luc me Binh ve tui thay vui cho Binh lam. Me Binh cham Binh beo tron xoe dang iu lam. Tui co mot chut buon vi Binh hong muon j tu tui nua, ma Binh cung hong mun gap tui. Tui co hoi may lan la bao h me Binh ve the? H nghi lai thi thay tui sai qua. Tui hoi the lam Binh nghi la tui hong muon me Binh o lai. Me Bin cham cho Bin tot nhu the thi sao tui lai nghi nhu v. Dang le ra tui phai hoi la "den khi nao thi tui moi duoc gap Binh". Luc do tui nho Binh lam lun, tui mun gap Binh lam, chi 5 phut thui cung duoc rui
+
+
+
+J tui than
+
+
+
+Tui muon hon Binh mot cai that lau, om Binh mot cai that chat
+
+
+
+Tui nghi ve Binh nhieu qua
+
+
+
+
+Mot nu hon?
+
+
+
+Binh co nho cai hom tui bi đau đầu hem. Hom day tui dau vai a, xong tui nam xem dt voi Binh, minh noi chuyen linh tinh mot chut xong tui het dau lun. Den luc tui di ve thi tui lai dau tiep nen tui phai mua thuoc de uong. Tinh iu kho hieu that
+
+
+Mat tui lau lam rui hem nan mun an nen nhiu mun an qua, uoc j Binh nan cho tui
+
+
+
+Tui ken an vai, ma cung k han la ken an. Kieu tui an cai gi tui cung che. The ma tui chua che cai j Binh nau bao h. J Binh nau hop z. Tui nho do an Binh nau. Ma an voi Binh tui toan an may bat chu bthg tui an co mot bat
+
+
+
+Tui nho Binh
+
+
+Uoc 
+
+
+Tui muon duoc om 
+
+
+Tui toan mo ve Binh, ve ca hai bon minh
+
+
+Tui hong thich an bun nma nhiu lan bun dau voi Binh nen h tui an duoc bun dau rui ne. hehe. Lan dau an bun dau mam tom la cung voi Bin hihi
+
+
+J nam ngoai tui di xem conan cung Binh ma nam nay lai k duoc di xem cung Binh nua r
+
+
+Tui nho giong noi cua Binh. Binh noi tieng anh dang yeu cuc, truoc tui cu treu la tây the, Binh bi treu nhieu Binh khoc lun. NGUOI GI MA DANG YEU THE
+
+
+J doc lai cai tren thay Binh dang yeu vch
+
+
+Tui that su lo cho Binh. K biet neu ma me Binh ve thi ai se cham soc Binh. Tui biet Binh khong can ai cham soc ca. Nhưng mà tui vẫn lo lắng
+
+
+J dau tim
+
+ 
+Mot ngay khong co Binh troi qua dai nhu vo tan 
+
+
+Neu nhu co mot dieu uoc, tui se uoc minh co the quay nguoc thoi gian ve dau thang 2. De tui co the sua lai tat ca moi thu, de tui co the giu Binh chat hon. Om Binh nhieu hon...
+
+
+Hom sau chia tay Binh noi la:" may thang sau la quen ngay ay ma". Không tui chưa quên được, tui vẫn còn nhiều cảm xúc lắm 
+
+
+iu Binh tang len gan 70kg, h sap tra lai cho Binh het rui hihi. Nma duoc cai mong tui van mem, so van thich lam
+
+
+Tui mới đọc lại vài đoạn tin nhắn. Hồi chưa yêu bọn mình nch đáng yêu vch. Tui nhớ Bình
+
+
+Đoạn sau chia tay tui sv vl, tui hối hận lắm
+
+
+Xin lui vi cu tao ap luc vo hinh len Binh. Tui cu noi tui k thich Binh the nay the kia. Tui co noi la tui kco cam Binh, nhung ma the lai tao ap luc len Binh. Xin lui, that ra Binh chi can la chinh minh la tui iu Binh rui. Tui da tung noi rui ma. Binh có thế nào đi nữa tui cũng vẫn yêu Bình. Nen la cu la chinh minh thui nhe
+
+
+Neu tui yeu Binh, tui se noi yeu Binh. Neu tui nho Binh, tui se noi nho Binh. Neu tui muon om Binh, tui se om Binh. Tui muon Binh, ...
+
+
+Tui muon Binh dong hanh voi tui
+
+
+That su la tui co the nghi ve Binh ca ngay
+
+
+Cai cam giac om Binh di ngu no am lam. Cam giac an toan, cam giac hanh phuc, am ap
+
+
+H tui nam mot minh trong phong, cam giac lac long lam. Lanh nua
+
+
+Tui sợ
+
+
+Thoi gian troi cham qua
+
+
+Lo nhu Binh tim duoc nguoi tot hon
+
+
+Sợ
+
+
+im ang qua
+
+
+Tui lam mat chuoi zalo rui, tu hom chia tay den h ngay nao tui cung nhan cho Binh tren zalo, tui xoa insta voi tiktok rui
+
+
+Sao luc thi ghet Binh, luc thi lai nho Binh. Tui k biet, tui k hieu
+
+
+Kho hieu qua
+
+
+Nhin cai gi cung the. Kieu co nhung cai cha lien quan gi tui nghi ra no lien quan den Binh duoc, ki cuc vcc. Tui ghet minh
+
+
+Nho mui toc Binh, muon duoc up mat vao toc Binh, muon duoc hon len tran Binh, nho...
+
+
+J nay nhin thay cai kep hinh gau truc Binh tang, truoc no bi hong tui sua n ma sứt ca rang. hi hi
+
+
+Minh yeu nhau 8 thang, 8 thang day thoi gian troi qua nhanh nhu mot cai chop mat. Tu luc minh dung lai den gio duoc 3 thang roi, vay ma tui dem tung ngay, tung gio, tung phut. Sao thoi gian troi cham vay?
+
+
+Tu nhien tui muon co con v, nhung ma tui lai hong mun lay vo, that ra la k muon lay ai khac ngoai Binh. Ko bit sau nay tui co nhan nuoi dua nao k
+
+
+Nhà bà tui có 2 con mèo con mới, bno sợ người lắm. Xong bno còn chỉ ở tầng 1 nữa. Tui cố sờ mà k được. Tối muộn tui hay xuống lấy thịt cho bno ăn, thịt mà cả nhà ăn tối còn thừa ý. Bno cứ tranh nhau nên tui phải cố chia phần bằng nhau. Xong lúc bọn nó ăn thì tui cố sờ bọn nó, bno cứ sợ ý khó sờ v. Tui còn canh bno ăn xem bno có ăn hết k, bno mà ăn thừa thì tui cầm cái miếng thịt thừa tui đi vòng vòng dí vào mặt bno đến bao h bno ăn hết thì thôi. Bno nhỏ nhỏ cứ chui rúc ý khó tìm, khó tiếp cận cực. Con mèo trắng thì qua ở nhà hàng xóm lun rùi, n hư lắm, nó k chịu về nhà. Tui mún nuôi một con với Bình, nhớ
+
+
+Meo con thich an thit rim
+
+
+Tui nho Binh
+
+
+H tui di chơi cac thu nhieu hon, nhieu luc vui cuc. Nhung ma tui cam thay no cung chi la bien phap thay the tam thoi cho viec tui nho Binh thui. Vi khi ma tui dang di choi thi tui van nho Binh. Dang cuoi dua voi ban be thi cung nho den Binh. Chả biết nhìn cái gì cũng tìm cách liên kết nó ra cái j đó liên quan đến Bình 
+
+
+Nay tui ăn dồi sụn mà không có Bình
+
+
+Tui nghĩ là tui nhớ lbinh của quá khứ và tui cứ bám víu vào lbinh đó, lbinh hiện tại khác nhiều lắm rồi, tui k chắc là quay lại có phải việc tốt hay không nhưng mà tui vẫn muốn thử. Nếu mọi chuyện theo hướng không tốt thì tui sẽ buông dễ hơn vì ít nhất tui đã được cho cơ hội để cố gắng.
+
+
+
+
+
+
+
+
+
+K hiểu lắm sao Bình nói là sợ tui, sợ gặp thì tui sẽ làm gì đó xấu Bình? Kiểu wtf vl? Trong mqh tui có dấu hiệu bạo lực à? Tui còn chẳng dám làm Bình đau, chẳng nỡ làm Bình khóc thì tại sao tui lại làm thế? Tui yêu Bình vcc ra ý. KHÔNG BAO GIỜ TUI LÀM THẾ. Mỗi cái này là tui vẫn còn cáu Bình thôi, chả hiểu sao Bình nghĩ về tui như thế được. Oan vl huhu. Ghét
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tui bat dau so va hong muon gui cai nay cho Bin rui. K biet tai sao nua. Tui nghi tui k nen tiep tuc lam phien Binh. Tui k biet minh bi gi nua. Tui k muon bi Binh mang, Binh chui, k muon de lai them an tuong xau sau khi chia tay nhung tui cu tiep tuc the nay y. Tui xin loi, tui k biet minh bi gi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tui ghét mình
+
+
+Tui ghét việc đầu tui cứ không ngừng nghĩ đến Bình
+ 
+
+Tui ghét việc bản thân mình không chấp nhận được hiện thực
+
+
+Tui ghét việc tui lúc nào cũng nhớ
+
+
+Tui ghét việc tui không thể ngừng làm phiền Bình
+
+
+Nhưng tui k ghét Bình
+
+
+Tui yêu Bình
+
+
+Tui không biết làm sao để dừng chính mình lại
+
+
+Sao nhìn cái gì cũng nhớ đến Bình
+
+
+
+Thật sự nhớ
+
+
+
+...
+
+
+
+Tui muốn yêu và tui muốn được yêu, nhưng tui không nghĩ có ai sẽ đặc biệt được như Bình nên tui mới như thế..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Binh noi la Binh muon date to marry nhung khi Binh chan tui Binh bo tui lun. The co tinh la noi doi khong vi tui nghi chang ai co the giu cam xuc nhu ngay dau khi yeu den cuoi doi ca. Hoac don gian la Binh khong date to marry ma chi noi the de tui vui thoi
+
+
+Buon that
+
+
+Tui than
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tui nghĩ tui bắt đầu phải chấp nhận sự thật rằng Bình không thật sự tốt đến thế, như những gì tui nghĩ.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trước tui cứ nghĩ bọn mình sẽ là kiểu yêu mà cãi nhau nhiều đến đâu đi nữa, có gì đi nữa thì vẫn sẽ tiếp tục cố gắng vì mối quan hệ này, có trách nhiệm với nhau và sẽ phát triển cùng nhau. Nhưng mà có vẻ như có một mình tui nghĩ thế...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tôi không biết mình đã làm gì sai. Tôi luôn luôn cố gắng để không mắc lại lỗi lầm cũ vì tôi luôn luôn có chí cầu tiến trong mối quan hệ. Tôi không hiểu lí do là gì ngoài từ hết yêu, tôi không hiểu tôi sai những gì để dẫn đến đó
+
+
+
+
+Tôi bị cô ấy nói chia tay, người tôi yêu nói lí do là hết yêu, hết tình cảm. Giai đoạn cuối mối quan hệ tôi còn chẳng được gặp người ta, chẳng được nghe giọng nói. Chia tay cũng là qua vài dòng tin nhắn. Lần đầu tiên người tôi yêu đề nghị dừng mối quan hệ lại, bạn ấy nói rằng: "Tui nghĩ là tui không xứng với sự cố gắng của Đăng". Bạn ấy cũng nói: "Có lẽ tui k nên yêu ai cả". Lúc đó tôi buồn lắm, tôi không biết xử lí sao. Tôi làm cho mọi thứ đi theo hướng tệ hơn rất nhiều mà bản thân mình có thể tưởng tượng, sai lầm nối tiếp sai lầm. Tôi đã để mất cô ấy. Sau đó sau chia tay tôi là 1 thằng khốn nạn, tôi van xin nài nỉ thảm hại. Tôi cố níu kéo theo kiểu tồi tệ nhất. 
+Suy nghĩ càng nhiều tôi càng nhận ra là tôi nhớ quá khứ, tôi muốn những thứ đã từng đó xảy ra một lần nữa. Thứ tôi muốn là được quay lại những khoảnh khắc đó với cô ấy, chứ tôi không chắc việc bản thân mình muốn cô ấy hiện tại. Hiện tại cách nhìn của tôi về cô ấy đã khác trước rồi, có phần thiên về hướng tiêu cực. Nhưng tôi chưa bao giờ ngưng hi vọng về cô ấy. Tôi không chắc giờ tôi với cô ấy quay lại thì có kết quả tốt không. Nhưng tôi vẫn muốn thử, nếu mọi chuyện không suôn sẻ thì tôi sẽ chấp nhận và buông xuôi dễ hơn. Tôi tạo ra cái này không mong muốn cô ấy sẽ quay lại, tôi tại ra cái này vì tôi có cảm giác mình phải làm một cái gì đó để bù lại những lỗi lầm mà tôi đã gây ra. Mặt khác tôi cũng muốn cô ấy hiểu được rằng cô ấy quan trọng đến như thế nào đối với tôi. Cô ấy đã từng rất rất rất đẹp trong mắt tôi. Giờ sau tất cả cô ấy vẫn đẹp, chỉ là không còn được như trước nữa. Những thứ tôi gửi cho cô ấy sau chia tay giờ tôi nhìn lại tôi mới thấy nó chỉ là lời trách móc, nhưng thứ này sẽ khác, nó sẽ không có lời trách móc nào cả, nó sẽ chỉ là cảm xúc và suy nghĩ của tôi sau khi người con gái ấy biến mất. Cô ấy sẽ là người con gái đầu tiên và cũng là cuối cùng tôi khen xinh. Tôi sẽ giữ lời hứa đến cuối dù cho chuyện gì có xảy ra đi nữa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+T ghét người nói dối, t ghét người hứa mà không giữ lời. T ghét người hứa vì vui chứ không hứa vì nghĩ mình sẽ làm được.
+
+
+
+    </p>
+  </div>
+
+  <script>
+    function login() {
+      const password = document.getElementById("password").value;
+
+      if (password === "2608") {
+        const loginBox = document.getElementById("login");
+        const homePage = document.getElementById("home");
+
+        loginBox.classList.add("fade-out");
+
+        setTimeout(() => {
+          loginBox.style.display = "none";
+          homePage.style.display = "block";
+          homePage.classList.add("fade-in");
+        }, 600);
+      } else {
+        document.getElementById("message").innerText = "Ngày bọn mình chính thức yêu nhau  👉👈";
+      }
+    }
+  </script>
+
+</body>
+</html>
